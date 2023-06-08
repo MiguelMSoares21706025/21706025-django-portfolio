@@ -119,10 +119,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = 'portfolio/static/images/'
-MEDIA_URL = 'images/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# default static files settings for PythonAnywhere.
+# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
+MEDIA_ROOT = '/home/pw21706025portfolio/21706025-django-portfolio/media'
+MEDIA_URL = '/media/'
+STATIC_ROOT = '/home/pw21706025portfolio/21706025-django-portfolio/static'
+STATIC_URL = '/static/'
