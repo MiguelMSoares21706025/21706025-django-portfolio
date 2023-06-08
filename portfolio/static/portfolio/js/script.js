@@ -45,6 +45,7 @@ window.addEventListener('DOMContentLoaded', getDate);
 
 
 /*THEME SCRIPT*/
+
 const darkModeButton = document.querySelector('#darkModeBtn');
 
 function loadStyle() {
@@ -63,13 +64,13 @@ function loadStyle() {
 }
 
 function setDarkMode() {
-    document.getElementById("stylesheet").href = "style-dark.css";
+    document.getElementById("stylesheet").href = "../css/style-dark.css";
     document.getElementById("darkModeBtn").textContent = "nightlight";
 
 }
 
 function setLightMode() {
-    document.getElementById("stylesheet").href = "style-light.css";
+    document.getElementById("stylesheet").href = "../css/style-light.css";
     document.getElementById("darkModeBtn").textContent = "clear_day";
 
 }

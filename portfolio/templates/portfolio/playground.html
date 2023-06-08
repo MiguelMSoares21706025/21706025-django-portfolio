@@ -1,0 +1,63 @@
+<!-- home.html -->
+
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+<h1 class="titulo-pagina">PLAYGROUND</h1>
+
+
+<h2 class="content-title" id="calculadora">Calculator</h2>
+<div class="content" id="calculadora">
+    <p>Insert expression:</p>
+    <input type="text" id="expressao" class="input">
+    </br>
+    <button onclick="calcular()" id="button-go"><span style="font-weight: 800;">Calculate</span></button>
+    <button onclick="apagar()" id="button-noGo"><span style="font-weight: 800;">Delete</span></button>
+    </br></br>
+    <div id="resultado"></div>
+</div>
+
+
+<div class="playground-parallax"></div>
+<div>
+
+    <h2 class="content-title" id="fotografiaInspiradora">Inspiring Photo</h2></br>
+    <div class="content" id="fotografiaInspiradora">
+        <div class="image" id="fotografiaInspiradora">
+            <img src="{% static 'portfolio/images/ocean31.jpg' %}" alt="">
+            <p id="resultadoTexto"></p>
+        </div>
+        <br>
+        <p>Insert an inspirational phrase ?</p>
+        <input type="text" id="frase" class="input">
+    </div>
+</div>
+<div class="playground-parallax"></div>
+
+<div>
+
+    <h2 class="content-title" id="locationTitle">Your name in 3 diferent places</h2>
+    <div class="content" id="sitiosdiferentes">
+        <div>
+            <p>Tell me your name!</p>
+            <input type="text" id="insertedName" class="input">
+            </br>
+            <button onclick="diferentLocations()" id="button-go">
+                <span style="font-weight: 800;">GO!</span></button>
+            </br></br>
+            <div id="hiBellow"></div>
+            </br></br>
+            <div id="byeBellow"></div>
+        </div>
+    </div>
+</div>
+
+<div class="playground-parallax">
+</div>
+
+<div class="content" id="sitiosdiferentes">
+    <h2 class="content-title">Today's date is!</h2>
+    <h3 class="content-title" id="currentDay"></h3>
+</div>
+{% endblock %}

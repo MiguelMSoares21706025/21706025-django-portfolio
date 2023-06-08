@@ -3,15 +3,15 @@
 <head>
     <title>MSoares Portfolio</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="Miguel Soares">
-    <meta name="description" content="O meu portfólio">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta content="Miguel Soares" name="author">
+    <meta content="O meu portfólio" name="description">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
             rel="stylesheet">
@@ -19,21 +19,21 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
             rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fa5f8f8cfb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/fa5f8f8cfb.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"/>
 
 
     {% load static %}
     <link href="{% static 'portfolio/css/style-light.css' %}" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/MS9.png' %}" sizes="any">
-    <script type="application/javascript" src="{% static 'portfolio/js/script.js' %}"></script>
+    <link href="{% static 'portfolio/images/MS9.png' %}" rel="icon" sizes="any" type="image/x-icon">
+    <script src="{% static 'portfolio/js/script.js' %}" type="application/javascript"></script>
 
 </head>
 
 <body onload="loadStyle()">
 
-<div class="grid-container">
+<div class="grid-container-hero">
     <name class="name-container">
         <p class="name-style">MIGUEL SOARES</p>
     </name>
@@ -60,12 +60,20 @@
         <button><span class="material-symbols-outlined" id="darkModeBtn">clear_day</span></button>
     </menu>
 
-
     <main>
         {% block main %}
         {% endblock main %}
     </main>
 
+    <article-1>
+        {% block article-1 %}
+        {% endblock article-1 %}
+    </article-1>
+
+    <article-2>
+        {% block article-2 %}
+        {% endblock article-2 %}
+    </article-2>
 
     <footer>
         <div class="footer-conteiner">
@@ -117,9 +125,7 @@
                             class="fa-brands fa-github"></i></a>
                 </div>
             </div>
-
         </div>
-
     </footer>
 
 </div>

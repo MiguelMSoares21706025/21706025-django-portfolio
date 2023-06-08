@@ -1,11 +1,83 @@
 <!-- home.html -->
 
-{% extends 'portfolio/layout.html' %}
+{% extends 'portfolio/layoutHero.html' %}
+{% load static %}
 
 {% block main %}
-
-<h3>Titulo</h3>
-<p>texto texto texto texto texto texto texto </p>
-{% load static %}
-<img src="{% static 'portfolio/images/b-39672.jpg' %}">
+        <div class="background-image">
+            <div class="motivational_header">
+                <h2>Hi! I'M MIGUEL</h2>
+                <div class="motivational_text">
+                    <p><b>Analyzing and visualizing data to make better and informed business decisions.</b></p></br></br></br>
+                    <a href="{% url 'portfolio:home' %}#aboutMe" class="btn btn-primary btn-xl page-scroll">About me</a>
+                </div>
+            </div>
+        </div>
 {% endblock %}
+
+
+
+{% block article-1 %}
+            <div id="aboutMe">
+            <figure class="article-container-photo" >
+                {% load static %}
+                <img src="{% static 'portfolio/images/MSP&B2.jpg' %}"  style="border-color: #c5962d; border-style: double; border-color: black;">
+            </figure>
+
+            <p class="article-container-text">I am goal driven and client oriented. With both efficacy and efficiency in mind,
+                I can contribute with appropriate solutions for different business contexts.</p>
+
+                    <div class ="article-container-button"><a href="{% static 'portfolio/images/MIGUELSOARES_RESUME_EN_2023.pdf' %}" target="blank_" class="btn btn-primary btn-xl">RESUME</a>
+                </div>
+            </div>
+{% endblock article-1 %}
+
+
+
+{% block article-2 %}
+            <div id="projects">
+            <h1 class="titulo-pagina">PROJECTS</h1>
+            <div class="projetos">
+                <div>
+                    <div><img src="{% static 'portfolio/images/ssd_proj.png' %}" alt=""></div>
+                    <div class="projetos-text">
+                        <p><b>Decision Support Systems</b></p></br>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="{% static 'portfolio/images/RC_proj1.png' %}" alt=""></div>
+                    <div class="projetos-text">
+                        <p><b>Computer Networks</b></p></br>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="{% static 'portfolio/images/SME_proj.png' %}" alt=""></div>
+                    <div class="projetos-text">
+                        <p><b>Mobile Business Systems</b></p></br>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="{% static 'portfolio/images/ES_proj1.png' %}" alt=""></div>
+                    <div class="projetos-text">
+                        <p><b>Software Engineering</b></p></br>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+{% endblock article-2 %}
