@@ -78,7 +78,7 @@ def webDev_page_view(request):
     return render(request, 'portfolio/webDev.html', context)
 
 
-def dER_page_view(request):
+def der_page_view(request):
     return render(request, 'portfolio/dER.html')
 
 
