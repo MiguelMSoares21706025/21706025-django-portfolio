@@ -57,9 +57,8 @@
                 <div class="dropdown-content">
                     <a href="http://pwmsoares.pythonanywhere.com/" target="blank_">LAB1</a>
                     <a href="http://pwmsoares.pythonanywhere.com/index.html" target="blank_">LAB2</a>
-                    <a href="http://pwmsoares.pythonanywhere.com/lab3/index.html#" target="blank_">LAB3</a>
+                    <a href="http://pwmsoares.pythonanywhere.com/lab3/index.html" target="blank_">LAB3</a>
                     <a href="https://pwmsoares.pythonanywhere.com/lab4/index.html" target="blank_">LAB4</a>
-                    <a href="https://pwsoaresportfolio.pythonanywhere.com" target="blank_">LAB5</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -67,9 +66,8 @@
                     <a href="#">WEBSITE</a>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{% url 'portfolio:about' %}">ABOUT</a>
                     <a href="{% url 'portfolio:sitemap' %}">SITEMAP</a>
-                    <a href="{% url 'portfolio:sitemap' %}">DER</a>
+                    <a href="{% url 'portfolio:dER' %}">DER</a>
                 </div>
             </div>
             {% if user.is_authenticated %}

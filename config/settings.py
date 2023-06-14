@@ -130,7 +130,7 @@ LOGIN_URL = 'portfolio:login'
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/pw21706025portfolio/21706025-django-portfolio/media'
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/pw21706025portfolio/21706025-django-portfolio/static'
 LOGIN_URL = 'portfolio:login'
