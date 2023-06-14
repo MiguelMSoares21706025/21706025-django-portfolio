@@ -18,10 +18,10 @@
         <p>{{ article.description1 }}</p></br>
         <p><b>{{ article.sub_title2 }}</b></p></br>
         <p>{{ article.description2 }}</p></br></br>
-        {% if user.is_authenticated %}
+
         <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:edit_article' article.id %}">Edit</a> |
                     <a style="text-decoration: none" href="{% url 'portfolio:remove_article' article.id %}">Delete</a></h4>
-        {% endif %}
+
 
         </br></br>
     </div>

@@ -37,13 +37,13 @@ def blog_page_view(request):
     ProjectsList = Project.objects.all()
 
     articles_All = Article.objects.all()
-    articles_Business = Article.objects.all().filter(area='Business')
-    articles_Technology = Article.objects.all().filter(area='Technology')
-    articles_Entertainment = Article.objects.all().filter(area='Entertainment')
-    articles_Lifestyle = Article.objects.all().filter(area='Lifestyle')
-    articles_Travel = Article.objects.all().filter(area='Travel')
-    articles_Sports = Article.objects.all().filter(area='Sports')
-    articles_Other = Article.objects.all().filter(area='Other')
+    articles_Business = Article.objects.all().filter(name='Business')
+    articles_Technology = Article.objects.all().filter(name='Technology')
+    articles_Entertainment = Article.objects.all().filter(name='Entertainment')
+    articles_Lifestyle = Article.objects.all().filter(name='Lifestyle')
+    articles_Travel = Article.objects.all().filter(name='Travel')
+    articles_Sports = Article.objects.all().filter(name='Sports')
+    articles_Other = Article.objects.all().filter(name='Other')
     context = {'articles_All': articles_All,
                'articles_Business': articles_Business,
                'articles_Technology': articles_Technology,
@@ -78,8 +78,8 @@ def webDev_page_view(request):
     return render(request, 'portfolio/webDev.html', context)
 
 
-def dER_page_view(request):
-    return render(request, 'portfolio/dER.html')
+def about_page_view(request):
+    return render(request, 'portfolio/about.html')
 
 
 def sitemap_page_view(request):
@@ -136,7 +136,29 @@ def add_article_page_view(request):
         return HttpResponseRedirect(reverse('portfolio:blog'))
 
     context = {'form': form}
+
     return render(request, 'portfolio/add_article.html', context)
+
+@login_required
+def edit_article_page_view(request, article_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    article = Article.objects.get(pk=article_id)
+    form = ArticleForm(request.POST or None, instance=article)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:article'))
+    context = {'form': form, 'article_id': article_id }
+    return render(request, 'portfolio/edit_article.html', context)
+
+
+def remove_article(request, article_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+    Article.objects.get(pk=article_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:blog'))
+
 
 
 @login_required
@@ -150,7 +172,30 @@ def add_curricularUnit_page_view(request):
         return HttpResponseRedirect(reverse('portfolio:courses'))
 
     context = {'form': form}
+
     return render(request, 'portfolio/add_curricularUnit.html', context)
+
+
+@login_required
+def edit_curricularUnit_page_view(request, curricularUnit_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    curricularUnit = CurricularUnit.objects.get(pk=curricularUnit_id)
+    form = CurricularUnitForm(request.POST or None, instance=curricularUnit)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:courses'))
+    context = {'form': form, 'curricularUnit_id': curricularUnit_id }
+    return render(request, 'portfolio/edit_curricularUnit.html', context)
+
+
+def remove_curricularUnit(request, curricularUnit_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+    CurricularUnit.objects.get(pk=curricularUnit_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:courses'))
+
 
 
 @login_required
@@ -161,37 +206,15 @@ def add_project_page_view(request):
     form = ProjectForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('portfolio:home')
+        return HttpResponseRedirect(reverse('portfolio:home'))
+    else:
+        print('invalid form:', form.errors)
 
     context = {'form': form}
     return render(request, 'portfolio/add_project.html', context)
 
-@login_required
-def edit_article_page_view(request, article_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:login'))
-
-    article = Article.objects.get(id=article_id)
-    form = ArticleForm(request.POST or None, instance=article )
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:blog'))
-    context = {'form': form, 'article_id': article_id}
-    return render(request, 'portfolio/edit_article.html', context)
 
 
-@login_required
-def edit_curricularUnit_page_view(request, curricularUnit_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:login'))
-
-    curricularUnit = CurricularUnit.objects.get(id=curricularUnit_id)
-    form = CurricularUnitForm(request.POST or None, instance=curricularUnit)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:courses'))
-    context = {'form': form, 'curricularUnit_id': curricularUnit_id }
-    return render(request, 'portfolio/edit_curricularUnit.html', context)
 
 
 @login_required
@@ -199,32 +222,18 @@ def edit_project_page_view(request, project_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
 
-    project = Project.objects.get(id=project_id)
+    project = Project.objects.get(pk=project_id)
     form = ProjectForm(request.POST or None, instance=project)
     if form.is_valid():
         form.save()
-        return redirect('portfolio:home')
+        return HttpResponseRedirect(reverse('portfolio:home'))
     context = {'form': form, 'project_id': project_id }
     return render(request, 'portfolio/edit_project.html', context)
-
-@login_required
-def remove_article(request, article_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:login'))
-    Article.objects.get(id=article_id).delete()
-    return HttpResponseRedirect(reverse('portfolio:blog'))
-
-def remove_curricularUnit(request, curricularUnit_id):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:login'))
-    CurricularUnit.objects.get(id=curricularUnit_id).delete()
-    return HttpResponseRedirect(reverse('portfolio:courses'))
 
 @login_required
 def remove_project(request, project_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
-    Project.objects.get(id=project_id).delete()
+    Project.objects.get(pk=project_id).delete()
     return HttpResponseRedirect(reverse('portfolio:home'))
-
 
