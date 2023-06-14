@@ -1,0 +1,25 @@
+{% extends 'portfolio/layoutLogin.html' %}
+
+{% load static %}
+
+
+{% block main %}
+<div class="login-page-image">
+<div class="login-container">
+    <div class="login-text-align">
+        <h1 class="login-text-align">Log in</h1></br>
+                {% if message %}
+                    <div class="error-message">{{ message }}</div>
+                {% endif %}
+                {% load static %}
+                <form action="{% url 'portfolio:login' %}" method="POST">
+                    {% csrf_token %}
+                    <input class= login-container-input" type="text" name="username" placeholder="Username" id="usernameText"></br></br>
+                    <input class= login-container-input" type="password" name="password" placeholder="Password" id="passwordText"></br></br>
+                    <input class= "login-button" type="submit" name="Login" value="Login" id="submitButton"></br>
+                </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

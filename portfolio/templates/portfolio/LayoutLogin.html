@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>MSoares Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Miguel Soares">
+    <meta name="description" content="O meu portfólio">
+
+
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'portfolio/css/style-light.css' %}" >
+    <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/MS9.png' %}" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+    {% load static %}
+    <script type="application/javascript" src="{% static 'portfolio/js/script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/fa5f8f8cfb.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="loadStyle()">
+
+
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+
+
+</body>
+
+</html>

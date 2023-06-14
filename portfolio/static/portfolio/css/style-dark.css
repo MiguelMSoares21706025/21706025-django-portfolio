@@ -64,6 +64,104 @@ article-2 {
     z-index: 1;
 }
 
+/*LOGIN PAGE---------------------------------------------------------------*/
+
+.login-page-image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-image: url("../images/backiee-130941.jpg");
+    opacity: 0.7;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 400px;
+    margin: 0px 10px 300px 10px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-text-align {
+    text-align: center;
+}
+
+.login-container input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #9370DB;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error-message {
+    color:white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*CRUD page-------------------------------------------------------------------*/
+.crud-page {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+   background-color: #303030;
+
+}
+
+.crud-page p {
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 20px 10px 20px 10px;
+    margin: 5px;
+    background-color: #303030;
+    border-radius: 3px;
+}
+.crud-page input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #303030;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+.crud-page input[type="text"],
+input[type="date"],
+input[type="image"],
+input[type="url"],
+input[type="number"],
+input[type="file"] {
+    width: 20%;
+    padding: 10px;
+    background-color: #9370DB;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+/*----------------------------------------------------------------------------*/
+
+
 footer {
     grid-area: footer;
     background-color: #222324;
@@ -72,42 +170,6 @@ footer {
     margin: 0px;
     width: auto;
     height: auto;
-    z-index: 1;
-}
-
-left1 {
-    grid-area: left1;
-    background-size: cover;
-    background-color: whitesmoke;
-    position: relative;
-    width: auto;
-    z-index: 1;
-}
-
-left2 {
-    grid-area: left2;
-    background-size: cover;
-    background-color: whitesmoke;
-    position: relative;
-    width: auto;
-    z-index: 1;
-}
-
-right1 {
-    grid-area: right1;
-    background-size: cover;
-    background-color: whitesmoke;
-    position: relative;
-    width: auto;
-    z-index: 1;
-}
-
-right2 {
-    grid-area: right2;
-    background-size: cover;
-    background-color: whitesmoke;
-    position: relative;
-    width: auto;
     z-index: 1;
 }
 
@@ -141,28 +203,16 @@ right2 {
         "footer footer";
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 10vh auto auto;
+    min-height: 100vh;
 }
 
-.grid-container-underConstruction {
-    display: grid;
-    height: auto;
-    width: auto;
-    gap: 0px;
-    padding: 0px;
-    background-color: transparent;
-    grid-template-areas:
-        "name menu"
-        "main main"
-        "footer footer";
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 10vh auto auto;
-}
 
 .grid-container > * {
     background-size: cover;
     opacity: 1;
 }
 
+/* MENU and NAV-----------------------------------------------*/
 .name-container {
     background-color: #222324;
     font-size: 1.8rem;
@@ -200,6 +250,10 @@ nav a {
 
 a:hover {
     color: #9370DB;
+}
+
+a {
+   color: #E6E6FA
 }
 
 .dropdown {
@@ -273,6 +327,7 @@ a:hover {
     color: #9370DB
 }
 
+/* HOME -----------------------------------------------*/
 .background-image {
     background-image: url("../images/backiee-5769412.jpg");
     background-repeat: no-repeat;
@@ -308,12 +363,14 @@ a:hover {
     width: 90px;
 }
 
+/* ALL PAGES-----------------------------------------------*/
 .titulo-pagina {
     display: flex;
     justify-content: center;
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     align-self: center;
     padding: 10px;
     font-size: 2rem;
@@ -331,6 +388,12 @@ a:hover {
     box-sizing: border-box;
     width: 5%;
 }
+
+.justified-text {
+    text-align: justify;
+}
+
+/* HOME----------------------------------------------- */
 
 article-2 titulo-pagina {
     display: flex;
@@ -393,6 +456,7 @@ article-2 titulo-pagina {
     background-color: #222324;
 }
 
+/*FOOTER-----------------------------------------------*/
 .footer-conteiner {
     width: auto;
     height: auto;
@@ -501,59 +565,170 @@ footer ul {
     background-color: #9370DB;
 }
 
+/* ABOUT THIS WEBSITE PAGE-----------------------------------------------*/
 .sitemap_image {
     background-image: url("../images/sitemap.drawio.svg");
     width: 100%;
     height: 100%;
 }
 
+/* PROJECTS FORMATTING------------------------------------------------ */
 .projetos {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-evenly;
-    align-items: space-around;
-    background-color: #303030;
-    padding: 50px 0;
+    align-content: space-around;
+    background-color: #212121;
+    padding: 5px 0;
 
 }
 
 .projetos > div {
-    background-color: #424242;
+    background-color: #303030;
     display: flex;
     justify-content: left;
     border-radius: 5px;
-
+    /*box shadow removed*/
     margin: 10px;
 }
 
 .projetos img {
-    background-color: #424242;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #303030;
     border-radius: 5px 0 0 5px;
     height: 100%;
 }
 
 .projetos div div:last-child {
-    width: 500px;
-    background-color: #424242;
-
+    width: 400px;
+    background-color: #303030;
+    border-radius: 0 20px 20px 0;
 }
 
 .projetos-text {
-    margin-left: 10px;
-    margin-top: 10px;
+    text-align: justify;
+    margin: 10px 15px 10px 15px;
     font-size: 0.9rem;
 }
 
-h3 {
+/* BLOG FORMATTING -----------------------------------------------*/
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.blog-button {
+    text-align: center;
+}
+
+.blog-page {
+
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.borderless-button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 20px 20px 0px 0px;
+}
+.article_borderless-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 20px 20px 0px 0px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.blog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    background-color: #212121;
+    padding: 1px 0;
+}
+
+.blog > div {
+    background-color: #303030;
+    display: flex;
+    justify-content: left;
+    box-shadow: 1px 1px 1px -1px #888888;
+    margin: 10px;
+}
+
+.blog img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #303030;
+    width: 400px;
+    height: 300px;
+}
+
+
+.blog div div:last-child {
+    width: 700px;
+    background-color: #303030;
+
+}
+
+.blog-text {
+    margin: 30px 10px 10px 30px;
+    font-size: 1rem;
+}
+
+.article-button {
+    text-align: center;
+}
+
+/*----------------------------------------------------------*/
+.subject_title_formatting {
     margin-top: 5%;
-    margin-left: 80px;
+    margin-bottom: 1%;
+}
+
+.page_content_formatting_5 {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.page-content_formatting_10 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.page_content_formatting_15 {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.page_content_formatting_20 {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.page_content_formatting_25 {
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .courses-lists {
     font-size: 1.2rem;
     height: auto;
     text-align: left;
-    margin-left: 260px;
+    margin-left: 120px;
     margin-top: 10px;
     display: flex;
 
@@ -564,16 +739,22 @@ h3 {
     height: auto;
     width: auto;
     text-align: left;
-    margin-left: 270px;
+    margin-left: 130px;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     left: 40px;
 }
 
+.curricular-unit formatting {
+    color: #E6E6FA;
+}
+
 #tables tr {
     background-color: #303030;
     height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #tables tr:nth-child(1) {
@@ -585,12 +766,16 @@ h3 {
 
 #tables td {
     text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #tables td:nth-child(1) {
+    padding-left: 10px;
     text-align: left;
-}
+    color: black;
 
+}
 
 .specialHeader {
     font-weight: 900;
@@ -725,22 +910,6 @@ div.playgroung-parallax {
         grid-template-rows: 10vh 10vh auto auto;
     }
 
-    .grid-container-underConstruction {
-        display: grid;
-        height: auto;
-        width: auto;
-        gap: 0px;
-        padding: 0px;
-        background-color: transparent;
-        grid-template-areas:
-            "name"
-            "menu"
-            "main"
-            "footer";
-        grid-template-columns: 1fr;
-        grid-template-rows: 10vh 10vh auto auto;
-    }
-
     .grid-container > * {
         background-size: cover;
         opacity: 1;
@@ -794,22 +963,6 @@ div.playgroung-parallax {
     }
 
     .grid-container {
-        display: grid;
-        height: auto;
-        width: auto;
-        gap: 0px;
-        padding: 0px;
-        background-color: transparent;
-        grid-template-areas:
-            "name"
-            "menu"
-            "main"
-            "footer";
-        grid-template-columns: 1fr;
-        grid-template-rows: 10vh 10vh auto auto;
-    }
-
-    .grid-container-underConstruction {
         display: grid;
         height: auto;
         width: auto;

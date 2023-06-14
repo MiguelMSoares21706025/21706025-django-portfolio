@@ -1,3 +1,60 @@
+
+/*THEME SCRIPT*/
+const darkModeButton = document.querySelector('#darkModeBtn');
+
+function loadStyle() {
+    const darkModeStat = localStorage.getItem("darkModeStat");
+    console.log("Darkmode: " + darkModeStat);
+
+    if (darkModeStat == null) {
+        localStorage.setItem("darkModeStat", 0);
+    } else {
+        if (darkModeStat == 1) {
+            setDarkMode();
+        } else {
+            setLightMode();
+        }
+    }
+}
+
+function setDarkMode() {
+    document.getElementById("stylesheet").href = "../css/style-dark.css";
+    document.getElementById("darkModeBtn").textContent="nightlight";
+
+}
+
+function setLightMode() {
+    document.getElementById("stylesheet").href = "../css/style-light.css";
+    document.getElementById("darkModeBtn").textContent="clear_day";
+
+}
+
+
+darkModeButton.addEventListener('click', function () {
+    const darkModeStat = localStorage.getItem("darkModeStat");
+
+    if (darkModeStat == true) {
+        localStorage.setItem("darkModeStat", 0);
+        setLightMode();
+    } else {
+        localStorage.setItem("darkModeStat", 1);
+        setDarkMode();
+    }
+});
+
+/*SINGLE PAGE SCRIPT*/
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        if (page.id === pageId) {
+            page.classList.add('active');
+        } else {
+            page.classList.remove('active');
+        }
+    });
+}
+
+
 /*PLAYGROUND SCRIPT*/
 function calcular() {
     const expressao = document.getElementById("expressao").value;
@@ -42,48 +99,3 @@ function getDate() {
 }
 
 window.addEventListener('DOMContentLoaded', getDate);
-
-
-/*THEME SCRIPT*/
-
-const darkModeButton = document.querySelector('#darkModeBtn');
-
-function loadStyle() {
-    const darkModeStat = localStorage.getItem("darkModeStat");
-    console.log("Darkmode: " + darkModeStat);
-
-    if (darkModeStat == null) {
-        localStorage.setItem("darkModeStat", 0);
-    } else {
-        if (darkModeStat == 1) {
-            setDarkMode();
-        } else {
-            setLightMode();
-        }
-    }
-}
-
-function setDarkMode() {
-    document.getElementById("stylesheet").href = "../css/style-dark.css";
-    document.getElementById("darkModeBtn").textContent = "nightlight";
-
-}
-
-function setLightMode() {
-    document.getElementById("stylesheet").href = "../css/style-light.css";
-    document.getElementById("darkModeBtn").textContent = "clear_day";
-
-}
-
-
-darkModeButton.addEventListener('click', function () {
-    const darkModeStat = localStorage.getItem("darkModeStat");
-
-    if (darkModeStat == true) {
-        localStorage.setItem("darkModeStat", 0);
-        setLightMode();
-    } else {
-        localStorage.setItem("darkModeStat", 1);
-        setDarkMode();
-    }
-});

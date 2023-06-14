@@ -1,12 +1,202 @@
 <!-- home.html -->
 
 {% extends 'portfolio/layout.html' %}
+
+
 {% load static %}
 
 {% block main %}
 
 <h1 class="titulo-pagina">BLOG</h1>
-</br></br></br></br>
-<img src="{% static 'portfolio/images/under-construction_geek_man_01.svg' %}" width="100%" height="300px">
+</br>
+<div class="page_content_formatting_20">
+    <div class="blog-page" class="blog">
+        <div class="blog-button">
+            <button class="borderless-button" onclick="showPage('ALL POSTS')"><a>All Posts</a></button>
+            <button class="borderless-button" onclick="showPage('Business')"><a>Business</a></button>
+            <button class="borderless-button" onclick="showPage('Technology')"><a>Technology</a></button>
+            <button class="borderless-button" onclick="showPage('Entertainment')"><a>Entertainment</a></button>
+            <button class="borderless-button" onclick="showPage('Lifestyle')"><a>Lifestyle</a></button>
+            <button class="borderless-button" onclick="showPage('Travel')"><a>Travel</a></button>
+            <button class="borderless-button" onclick="showPage('Sports')"><a>Sports</a></button>
+            <button class="borderless-button" onclick="showPage('Other')"><a>Other</a></button>
+        </div>
+        </br></br></br>
 
+        <div id="ALL POSTS" class="page active">
+
+            <h2 class="blog-button">All Posts</h2>
+            {% for article in articles_All %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Business" class="page">
+            <h2 class="blog-button">Business</h2>
+
+            {% for article in articles_Business %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Technology" class="page">
+            <h2 class="blog-button">Technology</h2>
+
+            {% for article in articles_Technology %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Entertainment" class="page">
+            <h2 class="blog-button">Entertainment</h2>
+
+            {% for article in articles_Entertainment %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Lifestyle" class="page">
+            <h2 class="blog-button">Lifestyle</h2>
+
+            {% for article in articles_Lifestyle %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Travel" class="page">
+            <h2 class="blog-button">Travel</h2>
+
+            {% for article in articles_Travel %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Sports" class="page">
+            <h2 class="blog-button">Sports</h2>
+
+            {% for article in articles_Sports %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="Other" class="page">
+            <h2 class="blog-button">Other</h2>
+
+            {% for article in articles_Other %}
+            <div class="blog">
+                <div>
+                    <div><img src="{{ article.image.url }}"></div>
+                    <div class="blog-text">
+                        <p>By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+                        <h3><b>{{ article.title }}</b></h3></br>
+                        <p>{{ article.brief_description }}</p>
+                        </br></br>
+                        <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:article' article.id %}">Read
+                            more</a></p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </br>
+        {% if user.is_authenticated %}
+        <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:add_author' %}">Add Author</a> |
+            <a style="text-decoration: none" href="{% url 'portfolio:add_article' %}">Add new Article</a>  </h4>
+        {% endif %}
+    </div>
+
+</div>
+</br></br></br></br></br>
 {% endblock %}
