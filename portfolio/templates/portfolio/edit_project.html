@@ -7,10 +7,10 @@
 <div class="page_content_formatting_25">
     <h3 class="titulo-pagina">Edit project</h3>
     </br>
-    <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:home' %}#projects">◀ MY PROJECTS</a></h4>
+    <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:home' %}">◀ MY PROJECTS</a></h4>
     </br>
     <div class="crud-page">
-        <form method="POST" action="_">
+        <form method="POST" action="{% url 'portfolio:edit_project' project_id %}">
             {% csrf_token %}
             {{ form.as_p }}
             </br></br>
