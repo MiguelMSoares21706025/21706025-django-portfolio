@@ -42,7 +42,7 @@
         {% if user.is_authenticated %}
         <td><p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:edit_curricularUnit' curricularUnit.id %}">Edit</a> |
                     <a style="text-decoration: none" href="{% url 'portfolio:remove_curricularUnit' curricularUnit.id %}">Delete</a></p></td>
-                {% endif %}
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

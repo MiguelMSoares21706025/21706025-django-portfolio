@@ -48,11 +48,10 @@
                 <p><b>{{ project.title }}</b></p></br>
                 <p>{{ project.description }}</p>
                 </br></br>
-                            {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <p style="text-align: right; font-size: 0.8rem"><a style="text-decoration: none" href="{% url 'portfolio:edit_project' project.id %}">Edit</a> |
                     <a style="text-decoration: none" href="{% url 'portfolio:remove_project' project.id %}">Delete</a></p>
-                        {% endif %}
-
+                {% endif %}
             </div>
         </div>
     </div>
