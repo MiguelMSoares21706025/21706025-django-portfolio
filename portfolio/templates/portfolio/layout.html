@@ -3,31 +3,26 @@
 <head>
     <title>MSoares Portfolio</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Miguel Soares">
     <meta name="description" content="O meu portfólio">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
-            rel="stylesheet">
-    <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
-            rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fa5f8f8cfb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
 
     {% load static %}
-    <link href="{% static 'portfolio/css/style-light.css' %}" rel="stylesheet">
+    <link rel="stylesheet"  href="{% static 'portfolio/css/style-light.css' %}" >
     <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/MS9.png' %}" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+    {% load static %}
     <script type="application/javascript" src="{% static 'portfolio/js/script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/fa5f8f8cfb.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -42,24 +37,51 @@
             <a href="{% url 'portfolio:home' %}">HOME</a>
             <div class="dropdown">
                 <button class="dropbtn">
-                    <a href="#">ABOUT ME</a>
+                    <a href="#">ABOUT</a>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{% url 'portfolio:home' %}#aboutMe">ABOUT ME HOME</a>
-                    <a href="{% url 'portfolio:home' %}#projects">PROJECTS</a>
-                    <a href="{% url 'portfolio:courses' %}">COURSES</a>
+                    <a href="{% url 'portfolio:home' %}#aboutMe">ME</a>
+                    <a href="{% url 'portfolio:home' %}#projects">MY PROJECTS</a>
+                    <a href="{% url 'portfolio:courses' %}">MY EDUCATION</a>
                     {% load static %}
-                    <a href="{% static 'portfolio/images/MIGUELSOARES_RESUME_EN_2023.pdf' %}" target="blank_">RESUME</a>
+                    <a href="{% static 'portfolio/images/MIGUELSOARES_RESUME_EN_2023.pdf' %}" target="blank_">MY
+                        RESUME</a>
                 </div>
             </div>
             <a href="{% url 'portfolio:playground' %}">PLAYGROUND</a>
-            <a href="{% url 'portfolio:webDev' %}">WEB DEV</a>
+            <a href="{% url 'portfolio:webDev' %}">WEBDEV</a>
             <a href="{% url 'portfolio:blog' %}">BLOG</a>
-            <a href="{% url 'portfolio:about' %}">ABOUT</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href="#">LABS</a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="http://pwmsoares.pythonanywhere.com/" target="blank_">LAB1</a>
+                    <a href="http://pwmsoares.pythonanywhere.com/index.html" target="blank_">LAB2</a>
+                    <a href="http://pwmsoares.pythonanywhere.com/lab3/index.html#" target="blank_">LAB3</a>
+                    <a href="https://pwmsoares.pythonanywhere.com/lab4/index.html" target="blank_">LAB4</a>
+                    <a href="https://pwsoaresportfolio.pythonanywhere.com" target="blank_">LAB5</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href="#">WEBSITE</a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'portfolio:about' %}">ABOUT</a>
+                    <a href="{% url 'portfolio:sitemap' %}">SITEMAP</a>
+                    <a href="{% url 'portfolio:sitemap' %}">DER</a>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'portfolio:logout' %}">Logout ({{user.username}})</a>
+            {% else %}
+            <a href="{% url 'portfolio:login' %}">LOGIN</a>
+            {% endif %}
         </nav>
         <button><span class="material-symbols-outlined" id="darkModeBtn">clear_day</span></button>
     </menu>
-
 
     <main>
         {% block main %}

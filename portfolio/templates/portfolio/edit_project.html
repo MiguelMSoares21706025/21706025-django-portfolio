@@ -1,0 +1,26 @@
+<!-- home.html -->
+
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+<div class="page_content_formatting_25">
+    <h3 class="titulo-pagina">Edit project</h3>
+    </br>
+    <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:home' %}#projects">◀ MY PROJECTS</a></h4>
+    </br>
+    <div class="crud-page">
+        <form method="POST" action="_">
+            {% csrf_token %}
+            {{ form.as_p }}
+            </br></br>
+            <div class="text-right">
+                <input type="submit" value="Save">
+            </div>
+
+
+        </form>
+    </div>
+</div>
+            </br></br></br></br>
+{% endblock %}

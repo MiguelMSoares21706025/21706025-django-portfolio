@@ -1,0 +1,31 @@
+<!-- home.html -->
+
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+<div class="page_content_formatting_15">
+    <h3 class="titulo-pagina">{{ article.title }}</h3>
+    </br>
+    <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:blog' %}">◀ BLOG</a></h4>
+    </br></br>
+    <div class="page_content_formatting_25">
+        <div class="blog img"><img src="{{ article.image.url }}"></div>
+        </br>
+        <p style="text-align: center">By <b>{{ article.author }}</b> | Updated {{ article.date }}</p></br>
+        <p>{{ article.brief_description }}</p></br></br>
+        <p><b>{{ article.sub_title1 }}</b></p></br>
+        <p>{{ article.description1 }}</p></br>
+        <p><b>{{ article.sub_title2 }}</b></p></br>
+        <p>{{ article.description2 }}</p></br></br>
+
+        <h4 style="text-align: center"><a style="text-decoration: none" href="{% url 'portfolio:edit_article' article.id %}">Edit</a> |
+                    <a style="text-decoration: none" href="{% url 'portfolio:remove_article' article.id %}">Delete</a></h4>
+
+
+        </br></br>
+    </div>
+</div>
+</div>
+
+{% endblock %}

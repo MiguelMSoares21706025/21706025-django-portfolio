@@ -5,8 +5,70 @@
 
 {% block main %}
 
-<h1 class="titulo-pagina">BLOG</h1>
-</br></br></br></br>
-<img src="{% static 'portfolio/images/under-construction_geek_man_01.svg' %}" width="100%" height="300px">
-
+<h1 class="titulo-pagina">WEB DEVELOPMENT</h1>
+<div class="page_content_formatting_15">
+    {% for subject in be_subjects %}
+    <h2 class="subject_title_formatting">{{ subject.name }}</h2>
+    <p class="justified-text">{{ subject.description }}</p>
+    {% endfor %}
+    </br>
+    <div>
+        <h3><b>Back-end Frameworks:</b></h3></br>
+        {% load static %}
+        {% for tech in backEndTechsList %}
+        <ul style="list-style-type: none">
+            <li class="lists_formatting"><h4>{{ tech.name }}</h4></li>
+            <li class="lists_formatting"><img src="{{ tech.logo.url }}"></li>
+            <li class="lists_formatting"><b>Release year: </b> {{ tech.release_year }}</li>
+            <li class="lists_formatting"><b>Author: </b> {{ tech.author }}</li>
+            <li class="lists_formatting"><b>Website: </b><a href="{{ tech.website_link }}" target="_blank">{{ tech.website_link }}</a></li>
+            <li class="lists_formatting"><b></b>
+                <p class="justified-text"> {{ tech.description }}</p></li>
+            </br></br>
+            {% endfor %}
+        </ul>
+    </div>
+    {% for subject in fe_subjects %}
+    <h2 class="subject_title_formatting">{{ subject.name }}</h2>
+    <p class="justified-text">{{ subject.description }}</p>
+    {% endfor %}
+    </br>
+    <div>
+        <h3><b>Front-end Frameworks:</b></h3></br></br>
+        {% for tech in frontEndTechsList %}
+        <ul style="list-style-type: none">
+            <li class="lists_formatting"><h4>{{ tech.name }}</h4></li>
+            <li class="lists_formatting"><img src="{{ tech.logo.url }}"></li>
+            <li class="lists_formatting"><b>Release year: </b> {{ tech.release_year }}</li>
+            <li class="lists_formatting"><b>Author: </b> {{ tech.author }}</li>
+            <li class="lists_formatting"><b>Website: </b><a href="{{ tech.website_link }}" target="_blank">{{ tech.website_link }}</a></li>
+            <li class="lists_formatting"><b></b>
+                <p class="justified-text"> {{ tech.description }}</p></li>
+            </br></br>
+            {% endfor %}
+        </ul>
+    </div>
+    {% for subject in other_subjects %}
+    <h2 class="subject_title_formatting">{{ subject.name }}</h2>
+    <p class="justified-text">{{ subject.description }}</p>
+    {% endfor %}
+    </br>
+    <div>
+        <h3><b>Technologies:</b></h3></br></br>
+        {% load static %}
+        {% for tech in otherTechsList %}
+        <ul style="list-style-type: none">
+            <li class="lists_formatting"><h4>{{ tech.name }}</h4></li>
+            <li class="lists_formatting"><img src="{{ tech.logo.url }}"></li>
+            <li class="lists_formatting"><b>Release year: </b> {{ tech.release_year }}</li>
+            <li class="lists_formatting"><b>Author: </b> {{ tech.author }}</li>
+            <li class="lists_formatting"><b>Website: </b><a href="{{ tech.website_link }}" target="_blank">{{ tech.website_link }}</a></li>
+            <li class="lists_formatting"><b></b>
+                <p class="justified-text"> {{ tech.description }}</p></li>
+            </br></br>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</br></br></br></br></br>
 {% endblock %}
