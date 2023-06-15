@@ -79,7 +79,7 @@ def webDev_page_view(request):
 
 
 def der_page_view(request):
-    return render(request, 'portfolio/dER.html')
+    return render(request, 'portfolio/der.html')
 
 
 def sitemap_page_view(request):
